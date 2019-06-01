@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "Interface.App",
+            "projectName": "PokePedia_40d226dc","console": "externalTerminal"
+        }
+    ]
+}
