@@ -3,5 +3,8 @@
 		{
 			"path": "E:\\Documentos\\Developer\\Java\\PokePedia"
 		}
-	]
+	],
+	"settings": {
+		"java.dependency.packagePresentation": "hierarchical"
+	}
 }
