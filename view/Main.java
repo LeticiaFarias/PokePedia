@@ -1,6 +1,8 @@
+package view;
+
 import util.*;
 
-public class App extends Helper {
+public class Main extends Helper {
 
     public static void main(String[] args) {
         print("Ola");

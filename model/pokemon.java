@@ -1,6 +1,6 @@
 package model;
 
-public class pokemon {
+public class Pokemon {
 
     private int id;
     private String nome;
@@ -10,10 +10,10 @@ public class pokemon {
     private double peso;
     private int geracao;
 
-    public pokemon() {
+    public Pokemon() {
     }
 
-    public pokemon(int id, String nome, String tipo, String caregoria, double altura, double peso, int geracao) {
+    public Pokemon(int id, String nome, String tipo, String caregoria, double altura, double peso, int geracao) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;

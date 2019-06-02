@@ -1,15 +1,15 @@
 package model;
 
-public class admin {
+public class Admin {
 
     private String nome;
     private String senha;
 
-    public admin() {
+    public Admin() {
 
     }
 
-    public admin(String nome, String senha) {
+    public Admin(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
     }
