@@ -1,13 +1,13 @@
 package view;
-import controller.PokemonsDAO;
-import model.Pokemon;
-import util.*;
 
-public class Main extends Helper {
+import java.util.Locale;
+
+public class Main {
+
     public static void main(String[] args) {
 
-        for (Pokemon p : PokemonsDAO.select(1)) {
-            print(p);
-        }
+        Locale.setDefault(new Locale("en", "US"));
+
+        Menu.home();
     }
 }

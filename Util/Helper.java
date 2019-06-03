@@ -10,20 +10,20 @@ public class Helper {
 
     // Printer:
 
-    // Estas funções sempre irão dar um \n no final.
-    // Você pode mudar isso se quiser.
-
     public static void print(Object aux) {
-        System.out.println(aux);
+        System.out.print(aux);
     }
 
-    public static void print() {
+    public static void println() {
         System.out.println();
+    }
+
+    public static void println(Object aux) {
+        System.out.println(aux);
     }
 
     public static void printf(String format, Object... args) {
         System.out.printf(format, args);
-        print();
     }
 
     // Scanner:
@@ -43,6 +43,10 @@ public class Helper {
 
     public static String nextLine() {
         return scan.nextLine();
+    }
+
+    public static String next() {
+        return scan.next();
     }
 
     public static float nextFloat() {

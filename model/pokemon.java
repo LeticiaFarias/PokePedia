@@ -5,7 +5,7 @@ public class Pokemon {
     private int id;
     private String nome;
     private String tipo;
-    private String caregoria;
+    private String categoria;
     private double altura;
     private double peso;
     private int geracao;
@@ -17,7 +17,7 @@ public class Pokemon {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
-        this.caregoria = caregoria;
+        this.categoria = caregoria;
         this.altura = altura;
         this.peso = peso;
         this.geracao = geracao;
@@ -47,12 +47,12 @@ public class Pokemon {
         this.tipo = tipo;
     }
 
-    public String getCaregoria() {
-        return this.caregoria;
+    public String getCategoria() {
+        return this.categoria;
     }
 
-    public void setCaregoria(String caregoria) {
-        this.caregoria = caregoria;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public double getAltura() {
@@ -81,14 +81,7 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", nome='" + getNome() + "'" +
-            ", tipo='" + getTipo() + "'" +
-            ", caregoria='" + getCaregoria() + "'" +
-            ", altura='" + getAltura() + "'" +
-            ", peso='" + getPeso() + "'" +
-            ", geracao='" + getGeracao() + "'" +
-            "}";
+        return getId() + ", " + getNome() + ", " + getTipo() + ", " + getCategoria() + ", " + getAltura() + ", "
+                + getPeso() + ", " + getGeracao();
     }
 }
