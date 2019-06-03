@@ -20,7 +20,7 @@ public class DB extends Helper {
         try {
             connection = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + database, user,
                     password);
-                    print("Connected!");
+            print("Connected!");
 
         } catch (SQLException e) {
             e.printStackTrace();
