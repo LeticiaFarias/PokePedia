@@ -14,7 +14,6 @@ public class Adicionar extends Menu {
             print("Digite o id: ");
             int id = nextInt();
 
-            nextLine();
             print("Digite o nome: ");
             String nome = nextLine();
 
@@ -37,21 +36,17 @@ public class Adicionar extends Menu {
 
             {
                 // Adiciona no banco de dados;
-                // Verifica se deu certo;
+                // Verifica e mostra se deu certo;
             }
 
             println();
             println(pokemon);
             println();
 
-            print("Pressione qualquer tecla para voltar. . .");
-            String opcao = nextLine();
+            voltar();
 
-            switch (opcao) {
-            default:
-                homeAdmin();
-                return;
-            }
+            homeAdmin();
+            return;
 
         } while (true);
     }

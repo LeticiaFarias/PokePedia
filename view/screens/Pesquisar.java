@@ -1,4 +1,5 @@
 package view.screens;
+
 import view.Menu;
 
 public class Pesquisar extends Menu {
@@ -52,16 +53,10 @@ public class Pesquisar extends Menu {
                 // Busca no DB e mostra;
             }
 
-            println("0. Voltar");
-            int opcao = lerOpcao();
+            voltar();
+            home(quem);
+            return;
 
-            switch (opcao) {
-            case 0:
-                home(quem);
-                return;
-            default:
-                break;
-            }
         } while (true);
     }
 
@@ -76,16 +71,9 @@ public class Pesquisar extends Menu {
                 // Busca no DB e mostra;
             }
 
-            println("0. Voltar");
-            int opcao = lerOpcao();
-
-            switch (opcao) {
-            case 0:
-                home(quem);
-                return;
-            default:
-                break;
-            }
+            voltar();
+            home(quem);
+            return;
         } while (true);
     }
 
@@ -99,16 +87,9 @@ public class Pesquisar extends Menu {
                 // Busca no DB e mostra;
             }
 
-            println("0. Voltar");
-            int opcao = lerOpcao();
-
-            switch (opcao) {
-            case 0:
-                home(quem);
-                return;
-            default:
-                break;
-            }
+            voltar();
+            home(quem);
+            return;
         } while (true);
     }
 
@@ -122,16 +103,9 @@ public class Pesquisar extends Menu {
                 // Busca no DB e mostra;
             }
 
-            println("0. Voltar");
-            int opcao = lerOpcao();
-
-            switch (opcao) {
-            case 0:
-                home(quem);
-                return;
-            default:
-                break;
-            }
+            voltar();
+            home(quem);
+            return;
         } while (true);
 
     }
@@ -146,16 +120,9 @@ public class Pesquisar extends Menu {
                 // Busca no DB e mostra;
             }
 
-            println("0. Voltar");
-            int opcao = lerOpcao();
-
-            switch (opcao) {
-            case 0:
-                home(quem);
-                return;
-            default:
-                break;
-            }
+            voltar();
+            home(quem);
+            return;
         } while (true);
     }
 }

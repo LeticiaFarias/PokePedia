@@ -1,5 +1,8 @@
 package util;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.util.Scanner;
 
 // Eu sou Bob o ajudante!
@@ -28,32 +31,29 @@ public class Helper {
 
     // Scanner:
 
-    // Não use 'scan.close'.
-    // Você pode incluir novas funções conforme a necessidade.
-
-    static Scanner scan = new Scanner(System.in);
+    static Scanner scan;
 
     public static int nextInt() {
-        return scan.nextInt();
+        scan = new Scanner(System.in);
+        int i = scan.nextInt();
+        return i;
     }
 
     public static double nextDouble() {
-        return scan.nextDouble();
+        scan = new Scanner(System.in);
+        double d = scan.nextDouble();
+        return d;
     }
 
     public static String nextLine() {
-        return scan.nextLine();
+        scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        return s;
     }
 
     public static String next() {
-        return scan.next();
-    }
-
-    public static float nextFloat() {
-        return scan.nextFloat();
-    }
-
-    public static short nextShort() {
-        return scan.nextShort();
+        scan = new Scanner(System.in);
+        String s = scan.next();
+        return s;
     }
 }

@@ -17,18 +17,14 @@ public class Listar extends Menu {
                 // Mostrar a lista.
             }
 
-            print("Pressione qualquer tecla para voltar. . .");
-            String opcao = nextLine();
+            voltar();
 
-            switch (opcao) {
-            default:
-                if (quem.equals("usuario")) {
-                    homeUsuario();
-                } else if (quem.equals("admin")) {
-                    homeAdmin();
-                }
-                return;
+            if (quem.equals("usuario")) {
+                homeUsuario();
+            } else if (quem.equals("admin")) {
+                homeAdmin();
             }
+            return;
         } while (true);
     }
 }

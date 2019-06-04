@@ -1,6 +1,7 @@
 package view;
 
 import java.io.IOException;
+
 import util.Helper;
 import view.screens.*;
 
@@ -30,12 +31,16 @@ public class Menu extends Helper {
 
         // Pega um número do usuário:
         print("Digite uma opção: ");
-        int aux = nextInt();
+        return nextInt();
+    }
 
-        // Limpa o Flush:
+    protected static void voltar() {
+
+        // Pega qualquer coisa do usuário:
+        print("Pressione qualquer tecla para voltar. . .");
+
+        // Segura o console até receber algo:
         nextLine();
-
-        return aux;
     }
 
     // <-- Métodos ajudantes
@@ -55,7 +60,7 @@ public class Menu extends Helper {
                 login();
                 return;
             case 2:
-                cadastrar();
+                Cadastrar.usuario();
                 return;
             case 0:
                 return;
@@ -85,33 +90,11 @@ public class Menu extends Helper {
 
         {
             // Se usuário:
-            //homeUsuario();
+            // homeUsuario();
 
             // Se admin:
             homeAdmin();
         }
-    }
-
-    // Tela de cadastro:
-    private static void cadastrar() {
-
-        titulo();
-
-        print("Nome de usuário: ");
-        String nome = nextLine();
-
-        {
-            // Verifica se o nome já existe no BD;
-        }
-
-        print("Senha: ");
-        String senha = nextLine();
-
-        {
-            // Adiciona o usuário no banco;
-        }
-
-        homeUsuario();
     }
 
     // Primeira tela do usuário comum após login ou cadasto:
@@ -141,8 +124,6 @@ public class Menu extends Helper {
     // Primeira tela do usuário administrador após login:
     protected static void homeAdmin() {
 
-        // Não está pronto ainda...
-
         do {
             titulo();
             println("1. Listar   ||   2. Pesquisar   ||   3. Adicionar   ||   4. Remover   ||   5. Atualizar   ||   6. Cadastrar   ||   0. Voltar");
@@ -159,10 +140,13 @@ public class Menu extends Helper {
                 Adicionar.home();
                 return;
             case 4:
+                Remover.home();
                 return;
             case 5:
+                Atualizar.home();
                 return;
             case 6:
+                Cadastrar.home();
                 return;
             case 0:
                 home();
