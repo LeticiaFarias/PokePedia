@@ -14,6 +14,7 @@ public class Menu extends Helper {
 
     protected static void titulo() {
 
+        // Apaga o console:
         if (System.getProperty("os.name").toLowerCase().contains("win")) {
             try {
                 new ProcessBuilder("cmd", "/c", "clear").inheritIO().start().waitFor();
