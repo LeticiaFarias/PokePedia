@@ -14,11 +14,17 @@ public class Menu extends Helper {
 
     protected static void titulo() {
 
-        // Apaga o console:
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } catch (InterruptedException | IOException e) {
-            e.printStackTrace();
+        if (System.getProperty("os.name").toLowerCase().contains("win")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "clear").inheritIO().start().waitFor();
+            } catch (InterruptedException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
 
         // Apresenta título:
