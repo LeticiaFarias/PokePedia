@@ -15,7 +15,7 @@ public class DB extends Helper {
     private static final String password = "3d21ad86dfa68de4dd6e8dceb7b9892ecc9374f6b55e3962a90a159e08083450";
     private static final String database = "da0035u8m4eh7o";
 
-    public static Connection getConnection() {
+    public static Connection Connect() {
 
         try {
             connection = DriverManager.getConnection("jdbc:postgresql://" + host + ":" + port + "/" + database, user,
@@ -29,14 +29,16 @@ public class DB extends Helper {
         return connection;
     }
 
+    public static Connection getConnection() {
+        return connection;
+    }
+
     public static void closeConnection() {
         try {
-            if (!connection.isClosed()) {
-                connection.close();
-                print("Closed.");
-            }
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        print("Connection closed...");
     }
 }

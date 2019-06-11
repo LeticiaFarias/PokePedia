@@ -34,8 +34,6 @@ public class PokemonsDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            DB.closeConnection();
         }
         return null;
     }
@@ -63,8 +61,6 @@ public class PokemonsDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            DB.closeConnection();
         }
         return null;
     }
@@ -92,8 +88,6 @@ public class PokemonsDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            DB.closeConnection();
         }
         return null;
     }

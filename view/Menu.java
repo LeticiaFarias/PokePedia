@@ -2,6 +2,8 @@ package view;
 
 import java.io.IOException;
 
+import controller.AdminsDAO;
+import controller.UsuariosDAO;
 import util.Helper;
 import view.screens.*;
 
@@ -64,15 +66,15 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1: 
+            case 1:
                 login();
                 return;
-            case 2: 
+            case 2:
                 Cadastrar.usuario();
                 return;
-            case 0: 
+            case 0:
                 return;
-            default: 
+            default:
                 break;
             }
         } while (true);
@@ -85,23 +87,21 @@ public class Menu extends Helper {
         print("Nome de usuário: ");
         String nome = nextLine();
 
-        {
-            // Verifica se o nome existe no BD;
-        }
-
         print("Senha: ");
         String senha = nextLine();
 
-        {
-            // Verifica se a senha está certa;
-        }
-
-        {
-            // Se usuário:
-            // homeUsuario();
-
-            // Se admin:
+        if (AdminsDAO.checkPassword(nome, senha)) {
+            println("Admin");
             homeAdmin();
+
+        } else if (UsuariosDAO.checkPassword(nome, senha)) {
+            println("Usuário");
+            homeUsuario();
+
+        } else {
+            println("Senha ou nome errado.");
+            voltar();
+            home();
         }
     }
 
@@ -114,16 +114,16 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1: 
+            case 1:
                 Listar.home("usuario");
                 return;
-            case 2: 
+            case 2:
                 Pesquisar.home("usuario");
                 return;
-            case 0: 
+            case 0:
                 home();
                 return;
-            default: 
+            default:
                 break;
             }
         } while (true);
@@ -138,28 +138,28 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1: 
+            case 1:
                 Listar.home("admin");
                 return;
-            case 2: 
+            case 2:
                 Pesquisar.home("admin");
                 return;
-            case 3: 
+            case 3:
                 Adicionar.home();
                 return;
-            case 4: 
+            case 4:
                 Remover.home();
                 return;
-            case 5: 
+            case 5:
                 Atualizar.home();
                 return;
-            case 6: 
+            case 6:
                 Cadastrar.home();
                 return;
-            case 0: 
+            case 0:
                 home();
                 return;
-            default: 
+            default:
                 break;
             }
         } while (true);
