@@ -70,7 +70,7 @@ public class Menu extends Helper {
                 login();
                 return;
             case 2:
-                Cadastrar.usuario();
+                Cadastrar.usuario("usuario");
                 return;
             case 0:
                 return;
