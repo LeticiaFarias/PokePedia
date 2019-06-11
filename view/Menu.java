@@ -90,11 +90,11 @@ public class Menu extends Helper {
         print("Senha: ");
         String senha = nextLine();
 
-        if (AdminsDAO.checkPassword(nome, senha)) {
+        if (AdminsDAO.check(nome, senha)) {
             println("Admin");
             homeAdmin();
 
-        } else if (UsuariosDAO.checkPassword(nome, senha)) {
+        } else if (UsuariosDAO.check(nome, senha)) {
             println("Usuário");
             homeUsuario();
 
