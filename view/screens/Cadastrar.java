@@ -1,5 +1,6 @@
 package view.screens;
 
+import controller.AdminsDAO;
 import controller.UsuariosDAO;
 import view.Menu;
 
@@ -38,12 +39,13 @@ public class Cadastrar extends Menu {
         String senha = nextLine();
 
         if (!UsuariosDAO.check(nome)) {
-            
+
             if (UsuariosDAO.insert(nome, senha)) {
                 println("OK");
             } else
                 println("Não adicionado.");
-        }
+        } else
+            println("Já existe um usuário com este nome.");
 
         if (quem.equals("admin")) {
             homeAdmin();
@@ -59,16 +61,17 @@ public class Cadastrar extends Menu {
         print("Nome de usuário: ");
         String nome = nextLine();
 
-        {
-            // Verifica se o nome já existe no BD;
-        }
-
         print("Senha: ");
         String senha = nextLine();
 
-        {
-            // Adiciona o usuário no banco, tabela admins;
-        }
+        if (!AdminsDAO.check(nome)) {
+
+            if (AdminsDAO.insert(nome, senha)) {
+                println("OK");
+            } else
+                println("Não adicionado.");
+        } else
+            println("Já existe um usuário com este nome.");
 
         homeAdmin();
     }
