@@ -10,13 +10,35 @@ import model.Pokemon;
 
 public class PokemonsDAO {
 
-    /*
-     * public static List<Pokemon> listAll() {
-     * 
-     * };
-     */
-
     public static List<Pokemon> list = new ArrayList<>();
+
+    public static List<Pokemon> selectAll() {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = DB.getConnection().prepareStatement("select * from pokemons;");
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                do {
+                    Pokemon pokemon = new Pokemon(rs.getInt("id"), rs.getString("nome"), rs.getString("tipo"),
+                            rs.getString("categoria"), rs.getDouble("altura"), rs.getDouble("peso"),
+                            rs.getInt("geracao"));
+
+                    list.add(pokemon);
+                } while (rs.next());
+
+                return list;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DB.closeConnection();
+        }
+        return null;
+    }
 
     public static List<Pokemon> select(int id) {
         PreparedStatement ps = null;

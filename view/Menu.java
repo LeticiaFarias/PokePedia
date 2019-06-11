@@ -23,6 +23,7 @@ public class Menu extends Helper {
             }
         }
 
+        // Linux
         else {
             System.out.print("\033[H\033[2J");
             System.out.flush();
@@ -63,15 +64,15 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1:
+            case 1: 
                 login();
                 return;
-            case 2:
+            case 2: 
                 Cadastrar.usuario();
                 return;
-            case 0:
+            case 0: 
                 return;
-            default:
+            default: 
                 break;
             }
         } while (true);
@@ -113,16 +114,16 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1:
+            case 1: 
                 Listar.home("usuario");
                 return;
-            case 2:
+            case 2: 
                 Pesquisar.home("usuario");
                 return;
-            case 0:
+            case 0: 
                 home();
                 return;
-            default:
+            default: 
                 break;
             }
         } while (true);
@@ -137,28 +138,28 @@ public class Menu extends Helper {
             int opcao = lerOpcao();
 
             switch (opcao) {
-            case 1:
+            case 1: 
                 Listar.home("admin");
                 return;
-            case 2:
+            case 2: 
                 Pesquisar.home("admin");
                 return;
-            case 3:
+            case 3: 
                 Adicionar.home();
                 return;
-            case 4:
+            case 4: 
                 Remover.home();
                 return;
-            case 5:
+            case 5: 
                 Atualizar.home();
                 return;
-            case 6:
+            case 6: 
                 Cadastrar.home();
                 return;
-            case 0:
+            case 0: 
                 home();
                 return;
-            default:
+            default: 
                 break;
             }
         } while (true);

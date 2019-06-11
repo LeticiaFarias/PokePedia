@@ -1,20 +1,22 @@
 package view.screens;
 
+import java.util.List;
+
+import controller.PokemonsDAO;
+import model.Pokemon;
 import view.Menu;
 
 public class Listar extends Menu {
 
     public static void home(String quem) {
 
-        {
-            // Conectar com o BD e pegar a lista de Pokémons;
-        }
+        List<Pokemon> pokemonList = PokemonsDAO.selectAll();
 
         do {
             titulo();
 
-            {
-                // Mostrar a lista.
+            for (Pokemon var : pokemonList) {
+                println(var);
             }
 
             voltar();
