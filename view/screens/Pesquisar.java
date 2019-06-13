@@ -1,6 +1,7 @@
 package view.screens;
 
 import dao.PokemonsDAO;
+import model.Pokemon;
 import view.Menu;
 
 public class Pesquisar extends Menu {
@@ -16,10 +17,10 @@ public class Pesquisar extends Menu {
             switch (opcao) {
             case 1:
                 byId(quem);
-                break;
+                return;
             case 2:
                 byNome(quem);
-                break;
+                return;
             case 0:
                 if (quem.equals("usuario")) {
                     homeUsuario();
@@ -41,8 +42,8 @@ public class Pesquisar extends Menu {
             int id = nextInt();
             println();
 
-            {
-                System.out.println(PokemonsDAO.select(id));
+            for (Pokemon var : PokemonsDAO.select(id)) {
+                println(var);
             }
 
             voltar();
@@ -59,8 +60,8 @@ public class Pesquisar extends Menu {
             String nome = nextLine();
             println();
 
-            {
-               System.out.println(PokemonsDAO.select(nome));
+            for (Pokemon var : PokemonsDAO.select(nome)) {
+                println(var);
             }
 
             voltar();

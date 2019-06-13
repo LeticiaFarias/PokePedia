@@ -41,6 +41,7 @@ public class PokemonsDAO {
     public static List<Pokemon> select(int id) {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        list.clear();
 
         try {
             ps = DB.getConnection().prepareStatement("select * from pokemons where id = ?;");
@@ -64,14 +65,15 @@ public class PokemonsDAO {
         }
         return null;
     }
- 
+
     public static List<Pokemon> select(String nome) {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        list.clear();
 
         try {
             ps = DB.getConnection().prepareStatement("select * from pokemons where nome like ?;");
-            ps.setString(1, nome);
+            ps.setString(1, nome + "%");
             rs = ps.executeQuery();
 
             if (rs.next()) {
