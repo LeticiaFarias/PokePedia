@@ -1,5 +1,7 @@
 package view.screens;
 
+import java.sql.SQLException;
+
 import dao.PokemonsDAO;
 import model.Pokemon;
 import view.Menu;
@@ -35,13 +37,20 @@ public class Adicionar extends Menu {
 
             Pokemon pokemon = new Pokemon(id, nome, tipo, categoria, altura, peso, geracao);
 
-            {
-                PokemonsDAO.insert(pokemon);
-            }
-
             println();
             println(pokemon);
             println();
+
+            try {
+                if (PokemonsDAO.insert(pokemon)) {
+                    println("Adicionado com sucesso.");
+                } else {
+                    println("Pokémon não adicionado.");
+                }
+                
+            } catch (SQLException e) {
+                println("O id já está em uso.");
+            }
 
             voltar();
 
