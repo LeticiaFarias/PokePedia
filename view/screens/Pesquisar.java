@@ -1,5 +1,6 @@
 package view.screens;
 
+import dao.PokemonsDAO;
 import view.Menu;
 
 public class Pesquisar extends Menu {
@@ -9,7 +10,7 @@ public class Pesquisar extends Menu {
             titulo();
 
             println("Pesquisar por:");
-            println("1. Id   ||   2. Nome   ||   3. Tipo   ||   4. Categoria   ||   5. Geração   ||   0. Voltar");
+            println("1. Id   ||   2. Nome  || 0. Voltar");
             int opcao = lerOpcao();
 
             switch (opcao) {
@@ -18,15 +19,6 @@ public class Pesquisar extends Menu {
                 break;
             case 2:
                 byNome(quem);
-                break;
-            case 3:
-                byTipo(quem);
-                break;
-            case 4:
-                byCategoria(quem);
-                break;
-            case 5:
-                byGeracao(quem);
                 break;
             case 0:
                 if (quem.equals("usuario")) {
@@ -50,7 +42,7 @@ public class Pesquisar extends Menu {
             println();
 
             {
-                // Busca no DB e mostra;
+                System.out.println(PokemonsDAO.select(id));
             }
 
             voltar();
@@ -68,56 +60,7 @@ public class Pesquisar extends Menu {
             println();
 
             {
-                // Busca no DB e mostra;
-            }
-
-            voltar();
-            home(quem);
-            return;
-        } while (true);
-    }
-
-    private static void byTipo(String quem) {
-        do {
-            print("Digite o tipo: ");
-            String tipo = nextLine();
-            println();
-
-            {
-                // Busca no DB e mostra;
-            }
-
-            voltar();
-            home(quem);
-            return;
-        } while (true);
-    }
-
-    private static void byCategoria(String quem) {
-        do {
-            print("Digite a categoria: ");
-            String categoria = nextLine();
-            println();
-
-            {
-                // Busca no DB e mostra;
-            }
-
-            voltar();
-            home(quem);
-            return;
-        } while (true);
-
-    }
-
-    private static void byGeracao(String quem) {
-        do {
-            print("Digite a geração: ");
-            int geracao = nextInt();
-            println();
-
-            {
-                // Busca no DB e mostra;
+               System.out.println(PokemonsDAO.select(nome));
             }
 
             voltar();

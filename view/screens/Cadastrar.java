@@ -1,7 +1,7 @@
 package view.screens;
 
-import controller.AdminsDAO;
-import controller.UsuariosDAO;
+import dao.AdminsDAO;
+import dao.UsuariosDAO;
 import view.Menu;
 
 public class Cadastrar extends Menu {

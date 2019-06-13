@@ -1,17 +1,18 @@
-package controller;
+package dao;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import db.DB;
 
-public class UsuariosDAO {
+public class AdminsDAO {
 
     public static boolean check(String nome, String senha) {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            ps = DB.getConnection().prepareStatement("select * from usuarios where nome = ? and senha = ?;");
+            ps = DB.getConnection().prepareStatement("select * from admins where nome = ? and senha = ?;");
             ps.setString(1, nome);
             ps.setString(2, senha);
             rs = ps.executeQuery();
@@ -32,7 +33,7 @@ public class UsuariosDAO {
         ResultSet rs = null;
 
         try {
-            ps = DB.getConnection().prepareStatement("select * from usuarios where nome = ?;");
+            ps = DB.getConnection().prepareStatement("select * from admins where nome = ?;");
             ps.setString(1, nome);
             rs = ps.executeQuery();
 
@@ -51,7 +52,7 @@ public class UsuariosDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = DB.getConnection().prepareStatement("insert into usuarios values(?,?);");
+            ps = DB.getConnection().prepareStatement("insert into admins values(?,?);");
             ps.setString(1, nome);
             ps.setString(2, senha);
             int rows = ps.executeUpdate();
