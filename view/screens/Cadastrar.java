@@ -19,7 +19,7 @@ public class Cadastrar extends Menu {
             case 2:
                 admin();
                 return;
-            case 3:
+            case 0:
                 homeAdmin();
                 return;
             default:
@@ -34,6 +34,7 @@ public class Cadastrar extends Menu {
         titulo();
 
         println("Cadastrar usuário");
+
         print("Nome de usuário: ");
         String nome = nextLine();
 

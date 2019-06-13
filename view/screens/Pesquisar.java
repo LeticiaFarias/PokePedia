@@ -57,15 +57,22 @@ public class Pesquisar extends Menu {
         do {
             titulo();
             print("Digite o nome: ");
-            String nome = nextLine();
-            println(); // Flush
 
-            // Converte a primeira letra para maiúsculo, as outras para minúsculo.
-            nome = nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase();
+            try {
+                String nome = nextLine();
 
-            // Listando
-            for (Pokemon var : PokemonsDAO.select(nome)) {
-                println(var);
+                println(); // Flush
+
+                // Converte a primeira letra para maiúsculo, as outras para minúsculo.
+                nome = nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase();
+
+                // Listando
+                for (Pokemon var : PokemonsDAO.select(nome)) {
+                    println(var);
+                }
+
+            } catch (Exception e) {
+                println("Erro.\nNenhum Pokémon encontrado.");
             }
 
             voltar();
