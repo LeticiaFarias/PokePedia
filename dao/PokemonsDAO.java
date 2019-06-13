@@ -15,6 +15,7 @@ public class PokemonsDAO {
     public static List<Pokemon> selectAll() {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        list.clear();
 
         try {
             ps = DB.getConnection().prepareStatement("select * from pokemons;");
