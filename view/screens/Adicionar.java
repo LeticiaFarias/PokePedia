@@ -1,5 +1,6 @@
 package view.screens;
 
+import dao.PokemonsDAO;
 import model.Pokemon;
 import view.Menu;
 
@@ -35,8 +36,7 @@ public class Adicionar extends Menu {
             Pokemon pokemon = new Pokemon(id, nome, tipo, categoria, altura, peso, geracao);
 
             {
-                // Adiciona no banco de dados;
-                // Verifica e mostra se deu certo;
+                PokemonsDAO.insert(pokemon);
             }
 
             println();

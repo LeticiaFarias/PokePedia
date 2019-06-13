@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,7 +101,25 @@ public class PokemonsDAO {
 
     }
 
-    public static void insert() {
+    public static boolean insert(Pokemon pokemon) throws SQLException {
+        PreparedStatement ps = null;
+
+        ps = DB.getConnection().prepareStatement("insert into pokemons values(?, ?, ?, ?, ?, ?, ?);");
+        ps.setInt(1, pokemon.getId());
+        ps.setString(2, pokemon.getNome());
+        ps.setString(3, pokemon.getTipo());
+        ps.setString(4, pokemon.getCategoria());
+        ps.setDouble(5, pokemon.getAltura());
+        ps.setDouble(6, pokemon.getPeso());
+        ps.setInt(7, pokemon.getGeracao());
+
+        int rows = ps.executeUpdate();
+
+        if (rows == 1) {
+            return true;
+        }
+
+        return false;
 
     }
 
