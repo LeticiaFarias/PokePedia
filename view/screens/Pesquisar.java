@@ -26,7 +26,7 @@ public class Pesquisar extends Menu {
                 byCategoria(quem);
                 break;
             case 5:
-                byGeração(quem);
+                byGeracao(quem);
                 break;
             case 0:
                 if (quem.equals("usuario")) {
@@ -110,7 +110,7 @@ public class Pesquisar extends Menu {
 
     }
 
-    private static void byGeração(String quem) {
+    private static void byGeracao(String quem) {
         do {
             print("Digite a geração: ");
             int geracao = nextInt();
