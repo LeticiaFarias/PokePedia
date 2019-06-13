@@ -1,5 +1,6 @@
 package view.screens;
 
+import dao.PokemonsDAO;
 import view.Menu;
 
 public class Remover extends Menu {
@@ -13,10 +14,12 @@ public class Remover extends Menu {
             print("Digite o id: ");
             int id = nextInt();
 
-            {
-                // Remover o pokémon do DB e verificar;
+            if (PokemonsDAO.delete(id)) {
+                println("Removido com sucesso.");
+            } else {
+                println("Pokémon não removido.");
             }
-            
+
             voltar();
             homeAdmin();
 

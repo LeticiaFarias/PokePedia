@@ -104,7 +104,21 @@ public class PokemonsDAO {
 
     }
 
-    public static void delete() {
+    public static boolean delete(int id) {
+        PreparedStatement ps = null;
+        try {
+            ps = DB.getConnection().prepareStatement("delete from pokemons where id = ?;");
+            ps.setInt(1, id);
+            int rows = ps.executeUpdate();
 
+            if (rows == 1) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }
