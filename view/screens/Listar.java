@@ -2,7 +2,7 @@ package view.screens;
 
 import java.util.List;
 
-import controller.PokemonsDAO;
+import dao.PokemonsDAO;
 import model.Pokemon;
 import view.Menu;
 

@@ -1,4 +1,4 @@
-package controller;
+package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,7 +43,7 @@ public class PokemonsDAO {
         ResultSet rs = null;
 
         try {
-            ps = DB.getConnection().prepareStatement("select * from pokemons where id like ?;");
+            ps = DB.getConnection().prepareStatement("select * from pokemons where id = ?;");
             ps.setInt(1, id);
             rs = ps.executeQuery();
 

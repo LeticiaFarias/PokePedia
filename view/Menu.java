@@ -2,8 +2,8 @@ package view;
 
 import java.io.IOException;
 
-import controller.AdminsDAO;
-import controller.UsuariosDAO;
+import dao.AdminsDAO;
+import dao.UsuariosDAO;
 import util.Helper;
 import view.screens.*;
 
@@ -13,7 +13,7 @@ public class Menu extends Helper {
     // Se tiver uma forma melhor crie uma branch, faça e então dê Merge Request.
 
     // Métodos ajudantes -->
-
+	
     protected static void titulo() {
 
         // Apaga o console:
@@ -82,7 +82,7 @@ public class Menu extends Helper {
 
     // Tela de login:
     private static void login() {
-        titulo();
+       titulo();
 
         print("Nome de usuário: ");
         String nome = nextLine();
@@ -109,7 +109,7 @@ public class Menu extends Helper {
     protected static void homeUsuario() {
 
         do {
-            titulo();
+           titulo();
             println("1. Listar   ||   2. Pesquisar   ||   0. Voltar");
             int opcao = lerOpcao();
 
