@@ -8,9 +8,9 @@ public class Atualizar extends Menu {
         do {
 
             titulo();
-            println("Atualizar por: ");
+            println("Atualizar pokémon por: ");
             println("1. Id   ||   2. Nome   ||   3. Tipo   ||   4. Categoria   ||   5. Altura   ||   6. Peso   ||   7. Geração   ||   0. Voltar");
-            
+
             switch (lerOpcao()) {
             case 1:
                 id();

@@ -9,6 +9,7 @@ public class Remover extends Menu {
         do {
             titulo();
 
+            println("Remover Pokémon");
             print("Digite o id: ");
             int id = nextInt();
 

@@ -81,7 +81,9 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return getId() + ", " + getNome() + ", " + getTipo() + ", " + getCategoria() + ", " + getAltura() + ", "
-                + getPeso() + ", " + getGeracao();
+        return String.format(
+                "Id: %-5d Nome: %-15s Tipo: %-10s "
+                        + "Categoria: %-15s Altura: %-10.1f Peso: %-10.1f Geração: %-10d",
+                id, nome, tipo, categoria, altura, peso, geracao);
     }
 }

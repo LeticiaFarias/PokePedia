@@ -9,6 +9,7 @@ public class Cadastrar extends Menu {
     public static void home() {
         do {
             titulo();
+            println("Cadastrar");
             println("1. Usuário   ||   2. Administrador   ||   0. Voltar");
 
             switch (lerOpcao()) {
@@ -32,6 +33,7 @@ public class Cadastrar extends Menu {
 
         titulo();
 
+        println("Cadastrar usuário");
         print("Nome de usuário: ");
         String nome = nextLine();
 
@@ -58,6 +60,7 @@ public class Cadastrar extends Menu {
 
         titulo();
 
+        println("Cadastrar administrador");
         print("Nome de usuário: ");
         String nome = nextLine();
 

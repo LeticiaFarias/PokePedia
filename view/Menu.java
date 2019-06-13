@@ -13,7 +13,7 @@ public class Menu extends Helper {
     // Se tiver uma forma melhor crie uma branch, faça e então dê Merge Request.
 
     // Métodos ajudantes -->
-	
+
     protected static void titulo() {
 
         // Apaga o console:
@@ -62,6 +62,7 @@ public class Menu extends Helper {
 
         do {
             titulo();
+            println("Página Inicial");
             println("1. Login   ||   2. Cadastrar   ||   0. Sair");
             int opcao = lerOpcao();
 
@@ -82,8 +83,9 @@ public class Menu extends Helper {
 
     // Tela de login:
     private static void login() {
-       titulo();
+        titulo();
 
+        println("Login");
         print("Nome de usuário: ");
         String nome = nextLine();
 
@@ -109,7 +111,8 @@ public class Menu extends Helper {
     protected static void homeUsuario() {
 
         do {
-           titulo();
+            titulo();
+            println("Página do Usuário");
             println("1. Listar   ||   2. Pesquisar   ||   0. Voltar");
             int opcao = lerOpcao();
 
@@ -134,6 +137,7 @@ public class Menu extends Helper {
 
         do {
             titulo();
+            println("Página do Administrador");
             println("1. Listar   ||   2. Pesquisar   ||   3. Adicionar   ||   4. Remover   ||   5. Atualizar   ||   6. Cadastrar   ||   0. Voltar");
             int opcao = lerOpcao();
 

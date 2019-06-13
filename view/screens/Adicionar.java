@@ -1,7 +1,5 @@
 package view.screens;
 
-import java.util.Locale;
-
 import model.Pokemon;
 import view.Menu;
 
@@ -10,6 +8,8 @@ public class Adicionar extends Menu {
     public static void home() {
         do {
             titulo();
+
+            println("Adicionar Pokémon");
 
             print("Digite o id: ");
             int id = nextInt();
