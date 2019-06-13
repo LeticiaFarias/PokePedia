@@ -46,6 +46,8 @@ public class Menu extends Helper {
 
     protected static void voltar() {
 
+        println();
+        
         // Pega qualquer coisa do usuário:
         print("Pressione qualquer tecla para voltar. . .");
 
