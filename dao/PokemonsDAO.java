@@ -100,11 +100,34 @@ public class PokemonsDAO {
 
     }
 
-    public static void insert() {
+    public static boolean insert(Pokemon pokemon) {
+    	PreparedStatement ps = null;
+    	
+    	try {
+			ps = DB.getConnection().prepareStatement("INSERT INTO pokemons values(?, ?, ?, ?, ?, ?, ?);");
+			ps.setInt(1, pokemon.getId());
+			ps.setString(2, pokemon.getNome());
+			ps.setString(3, pokemon.getTipo());
+			ps.setString(4, pokemon.getCategoria());
+			ps.setDouble(5, pokemon.getAltura());
+			ps.setDouble(6, pokemon.getPeso());
+			ps.setInt(7, pokemon.getGeracao());
+			
+			int rows = ps.executeUpdate();
+			
+			if(rows == 1) {
+				return true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    	return false;
 
     }
 
     public static void delete() {
-
+    	
     }
 }
