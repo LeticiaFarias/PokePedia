@@ -120,7 +120,6 @@ public class PokemonsDAO {
         }
 
         return false;
-
     }
 
     public static boolean delete(int id) {

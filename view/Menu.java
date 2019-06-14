@@ -12,6 +12,8 @@ public class Menu extends Helper {
     // Concistência do tipo de interface: Baixa, há formas melhores de se fazer.
     // Se tiver uma forma melhor crie uma branch, faça e então dê Merge Request.
 
+    protected static String nomeUsuario; // <- Usado pela classe mochila;
+
     // Métodos ajudantes -->
 
     protected static void titulo() {
@@ -47,7 +49,7 @@ public class Menu extends Helper {
     protected static void voltar() {
 
         println();
-        
+
         // Pega qualquer coisa do usuário:
         print("Pressione qualquer tecla para voltar. . .");
 
@@ -100,6 +102,7 @@ public class Menu extends Helper {
 
         } else if (UsuariosDAO.check(nome, senha)) {
             println("Usuário");
+            nomeUsuario = nome;
             homeUsuario();
 
         } else {
@@ -115,7 +118,7 @@ public class Menu extends Helper {
         do {
             titulo();
             println("Página do Usuário");
-            println("1. Listar   ||   2. Pesquisar   ||   0. Voltar");
+            println("1. Listar   ||   2. Pesquisar   ||   3. Mochila   0. Voltar");
             int opcao = lerOpcao();
 
             switch (opcao) {
@@ -124,6 +127,9 @@ public class Menu extends Helper {
                 return;
             case 2:
                 Pesquisar.home("usuario");
+                return;
+            case 3:
+                Mochila.home();
                 return;
             case 0:
                 home();
