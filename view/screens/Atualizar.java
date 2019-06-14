@@ -1,242 +1,241 @@
 package view.screens;
 
+import dao.PokemonsDAO;
+import model.Pokemon;
 import view.Menu;
 
 public class Atualizar extends Menu {
 
-    public static void home() {
-        do {
+	public static void home() {
+		do {
 
-            titulo();
-            println("Atualizar pokémon por: ");
-            println("1. Id   ||   2. Nome   ||   3. Tipo   ||   4. Categoria   ||   5. Altura   ||   6. Peso   ||   7. Geração   ||   0. Voltar");
+			titulo();
+			println("Atualizar Pokémon por: ");
+			println("1. Nome   ||   2. Tipo   ||   3. Categoria   ||   4. Altura   ||   5. Peso   ||   6. Geração   ||   0. Voltar");
 
-            switch (lerOpcao()) {
-            case 1:
-                id();
-                return;
-            case 2:
-                nome();
-                return;
-            case 3:
-                tipo();
-                return;
-            case 4:
-                categoria();
-                return;
-            case 5:
-                altura();
-                return;
-            case 6:
-                peso();
-                return;
-            case 7:
-                geracao();
-                return;
-            case 0:
-                homeAdmin();
-                return;
+			switch (lerOpcao()) {
+			case 1:
+				nome();
+				return;
+			case 2:
+				tipo();
+				return;
+			case 3:
+				categoria();
+				return;
+			case 4:
+				altura();
+				return;
+			case 5:
+				peso();
+				return;
+			case 6:
+				geracao();
+				return;
+			case 0:
+				homeAdmin();
+				return;
 
-            default:
-                break;
-            }
+			default:
+				break;
+			}
 
-        } while (true);
-    }
+		} while (true);
+	}
 
-    private static void id() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+	private static void nome() {
+		String novoNome = null;
 
-            {
-                // Procurar no DB e mostrar;
-            }
+		do {
+			titulo();
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+			println("Atualizar ID");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                print("Digite o novo id: ");
-                int idNovo = nextInt();
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-                {
-                    // Verifica se já não existe um com esse número e atualiza;
-                }
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+			if (opcao == 1) {
+				print("Informe o novo nome: ");
+				novoNome = nextLine();
 
-    private static void nome() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+				if (PokemonsDAO.updateNome(novoNome, idAtual)) {
+					println("Nome alterado com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações.\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 
-            {
-                // Procurar no DB e mostrar;
-            }
+	public static void tipo() {
+		String novoTipo = null;
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+		do {
+			titulo();
 
-                print("Digite o novo nome: ");
-                String nomeNovo = nextLine();
+			println("Atualizar Tipo");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-    public static void tipo() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+			if (opcao == 1) {
+				print("Informe o novo tipo: ");
+				novoTipo = nextLine();
 
-            {
-                // Procurar no DB e mostrar;
-            }
+				if (PokemonsDAO.updateTipo(novoTipo, idAtual)) {
+					println("Tipo alterado com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações.\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+	public static void categoria() {
+		String novaCategoria = null;
+		do {
+			titulo();
 
-                print("Digite o novo tipo: ");
-                String tipoNovo = nextLine();
+			println("Atualizar Categoria");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-    public static void categoria() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+			if (opcao == 1) {
+				print("Informe a nova Categoria: ");
+				novaCategoria = nextLine();
 
-            {
-                // Procurar no DB e mostrar;
-            }
+				if (PokemonsDAO.updateCategoria(novaCategoria, idAtual)) {
+					println("Categoria alterada com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações!\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+	public static void altura() {
+		double novaAltura = 0;
 
-                print("Digite a nova categoria: ");
-                String categoriaNova = nextLine();
+		do {
+			titulo();
 
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
+			println("Atualizar Altura");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-    }
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-    public static void altura() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+			if (opcao == 1) {
+				print("Informe a nova Altura: ");
+				novaAltura = nextDouble();
+				if (PokemonsDAO.updateAltura(novaAltura, idAtual)) {
+					println("Altura alterada com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações.\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 
-            {
-                // Procurar no DB e mostrar;
-            }
+	public static void peso() {
+		double novoPeso = 0;
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+		do {
+			titulo();
 
-                print("Digite a nova altura: ");
-                double alturaNova = nextDouble();
+			println("Atualizar Peso");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-    public static void peso() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+			if (opcao == 1) {
+				print("Informe o novo Peso: ");
+				novoPeso = nextDouble();
 
-            {
-                // Procurar no DB e mostrar;
-            }
+				if (PokemonsDAO.updatePeso(novoPeso, idAtual)) {
+					println("Peso alterado com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações!\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+	public static void geracao() {
+		int novaGeracao = 0;
 
-                print("Digite o novo peso: ");
-                double pesoNovo = nextDouble();
+		do {
+			titulo();
 
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
+			println("Atualizar Geração");
+			print("Digite o ID: ");
+			int idAtual = nextInt();
 
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
+			}
 
-    public static void geracao() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
+			println("\nContinuar?\n1. Sim   ||   2. Não");
+			int opcao = nextInt();
 
-            {
-                // Procurar no DB e mostrar;
-            }
+			if (opcao == 1) {
+				print("Informe a nova Geração: ");
+				novaGeracao = nextInt();
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
-
-                print("Digite a nova geração: ");
-                int geracaoNova = nextInt();
-
-                {
-                    // Verifica se já não existe um igual;
-                    // Atualiza e mostra;
-                }
-
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
+				if (PokemonsDAO.updateGeracao(novaGeracao, idAtual)) {
+					println("Geração alterada com sucesso!\n");
+				} else {
+					println("Ocorreu um erro ao atualizar informações!\n");
+				}
+			}
+			voltar();
+			home();
+			return;
+		} while (true);
+	}
 }
