@@ -65,6 +65,10 @@ public class Atualizar extends Menu {
 				novoNome = nextLine();
 
 				if (PokemonsDAO.updateNome(novoNome, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Nome alterado com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações.\n");
@@ -98,6 +102,10 @@ public class Atualizar extends Menu {
 				novoTipo = nextLine();
 
 				if (PokemonsDAO.updateTipo(novoTipo, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Tipo alterado com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações.\n");
@@ -130,6 +138,10 @@ public class Atualizar extends Menu {
 				novaCategoria = nextLine();
 
 				if (PokemonsDAO.updateCategoria(novaCategoria, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Categoria alterada com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações!\n");
@@ -162,6 +174,10 @@ public class Atualizar extends Menu {
 				print("Informe a nova Altura: ");
 				novaAltura = nextDouble();
 				if (PokemonsDAO.updateAltura(novaAltura, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Altura alterada com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações.\n");
@@ -195,6 +211,10 @@ public class Atualizar extends Menu {
 				novoPeso = nextDouble();
 
 				if (PokemonsDAO.updatePeso(novoPeso, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Peso alterado com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações!\n");
@@ -228,6 +248,10 @@ public class Atualizar extends Menu {
 				novaGeracao = nextInt();
 
 				if (PokemonsDAO.updateGeracao(novaGeracao, idAtual)) {
+					println();
+					for (Pokemon var : PokemonsDAO.select(idAtual)) {
+						println(var);
+					}
 					println("Geração alterada com sucesso!\n");
 				} else {
 					println("Ocorreu um erro ao atualizar informações!\n");
