@@ -1,7 +1,5 @@
 package view.screens;
 
-import java.sql.SQLException;
-
 import dao.MochilasDAO;
 import dao.PokemonsDAO;
 import model.Pokemon;
@@ -92,7 +90,7 @@ public class Mochila extends Menu {
         for (Pokemon var : MochilasDAO.select(nomeUsuario)) {
             println(var);
         }
-        
+
         voltar();
         home();
     }
