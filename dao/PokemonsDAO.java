@@ -237,4 +237,23 @@ public class PokemonsDAO {
 		}
 		return false;
 	}
+	
+	public static boolean updateGeracao(int geracao, int id) {
+		PreparedStatement ps = null;
+		
+		try {
+			ps = DB.getConnection().prepareStatement("UPDATE pokemons SET geracao = ? WHERE id = ?;");
+			ps.setInt(2, id);
+			ps.setInt(1, geracao);
+			
+			int rows = ps.executeUpdate();
+			
+			if(rows == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }
