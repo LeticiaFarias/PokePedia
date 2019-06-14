@@ -184,6 +184,7 @@ public class Atualizar extends Menu {
 
 	public static void altura() {
 		double novaAltura = 0;
+		
 		do {
 			titulo();
 
@@ -219,27 +220,36 @@ public class Atualizar extends Menu {
 	}
 
 	public static void peso() {
+		double novoPeso = 0;
+		
 		do {
 			titulo();
-			print("Digite o id: ");
+
+			println("Atualizar Peso");
+			print("Digite o ID: ");
 			int idAtual = nextInt();
 
-			{
-				// Procurar no DB e mostrar;
+			PokemonsDAO.select(idAtual);
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
 			}
 
-			println("1. Continuar   ||   0. Voltar");
-			if (lerOpcao() == 1) {
+			print("\nDeseja continua?\n[ 1 ] Sim [ 2 ] Não\n-- ");
+			int opcao = nextInt();
 
-				print("Digite o novo peso: ");
-				double pesoNovo = nextDouble();
+			if (opcao == 1) {
+				println("Informe a novo Peso: ");
+				novoPeso = nextDouble();
 
-				{
-					// Verifica se jÃ¡ nÃ£o existe um igual;
-					// Atualiza e mostra;
-				}
-
+				PokemonsDAO.updatePeso(novoPeso, idAtual);
+			} else {
 				voltar();
+			}
+
+			if (PokemonsDAO.updatePeso(novoPeso, idAtual)) {
+				println("Peso alterado com sucesso!\n");
+			} else {
+				println("Ocorreu um erro ao atualizar informações!\n");
 			}
 			home();
 			return;
