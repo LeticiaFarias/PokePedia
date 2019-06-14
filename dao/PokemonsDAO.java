@@ -143,13 +143,32 @@ public class PokemonsDAO {
         return false;
     }
     
-    public static boolean update(String nome, int id) {
+    public static boolean updateNome(String nome, int id) {
     	PreparedStatement ps = null;
     	
     	try {
 			ps = DB.getConnection().prepareStatement("UPDATE pokemons SET nome = ? WHERE id = ?;");
 			ps.setInt(2, id);
 			ps.setString(1, nome);
+			
+			int rows = ps.executeUpdate();
+			
+			if(rows == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+    }
+    
+    public static boolean updateTipo(String tipo, int id) {
+    	PreparedStatement ps = null;
+    	
+    	try {
+			ps = DB.getConnection().prepareStatement("UPDATE pokemons SET tipo = ? WHERE id = ?;");
+			ps.setInt(2, id);
+			ps.setString(1, tipo);
 			
 			int rows = ps.executeUpdate();
 			

@@ -7,6 +7,7 @@ import view.Menu;
 public class Atualizar extends Menu {
 
 	static String novoNome;
+	static String novoTipo;
 	
     public static void home() {
         do {
@@ -68,12 +69,12 @@ public class Atualizar extends Menu {
     		   println("Informe o novo nome: ");
     		   novoNome = nextLine();
 
-    		   PokemonsDAO.update(novoNome, idAtual);
+    		   PokemonsDAO.updateNome(novoNome, idAtual);
     	   }else {
     		   voltar();
     	   }
     	   
-    	   if(PokemonsDAO.update(novoNome, idAtual)) {
+    	   if(PokemonsDAO.updateNome(novoNome, idAtual)) {
     		   println("Nome alterado com sucesso!\n");
     	   }else {
     		   println("Ocorreu um erro ao atualizar informações!\n");
@@ -100,7 +101,7 @@ public class Atualizar extends Menu {
                 novoNome = nextLine();
 
                 {
-                    PokemonsDAO.update(novoNome, idAtual);
+                    PokemonsDAO.updateNome(novoNome, idAtual);
                 }
 
                 voltar();
@@ -111,31 +112,38 @@ public class Atualizar extends Menu {
     }
 
     public static void tipo() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
-
-            {
-                // Procurar no DB e mostrar;
+    	do {
+     	   titulo();
+     	   
+     	   println("Atualizar Tipo");
+     	   print("Digite o ID: ");
+     	   int idAtual = nextInt();
+     	   
+     	   PokemonsDAO.select(idAtual);
+     	   for (Pokemon var : PokemonsDAO.select(idAtual)) {
+                println(var);
             }
 
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
+     	   print("\nDeseja continua?\n[ 1 ] Sim [ 2 ] Não\n-- ");
+     	   int opcao = nextInt();
+     	   
+     	   if(opcao == 1) {
+     		   println("Informe o novo tipo: ");
+     		   novoTipo = nextLine();
 
-                print("Digite o novo tipo: ");
-                String tipoNovo = nextLine();
-
-                {
-                    // Verifica se jÃ¡ nÃ£o existe um igual;
-                    // Atualiza e mostra;
-                }
-
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
+     		   PokemonsDAO.updateTipo(novoTipo, idAtual);
+     	   }else {
+     		   voltar();
+     	   }
+     	   
+     	   if(PokemonsDAO.updateTipo(novoTipo, idAtual)) {
+     		   println("Tipo alterado com sucesso!\n");
+     	   }else {
+     		   println("Ocorreu um erro ao atualizar informações!\n");
+     	   }
+     	   home();
+     	   return;
+        }while(true);
     }
 
     public static void categoria() {
