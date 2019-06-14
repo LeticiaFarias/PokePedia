@@ -183,27 +183,35 @@ public class Atualizar extends Menu {
 	}
 
 	public static void altura() {
+		double novaAltura = 0;
 		do {
 			titulo();
-			print("Digite o id: ");
+
+			println("Atualizar Altura");
+			print("Digite o ID: ");
 			int idAtual = nextInt();
 
-			{
-				// Procurar no DB e mostrar;
+			PokemonsDAO.select(idAtual);
+			for (Pokemon var : PokemonsDAO.select(idAtual)) {
+				println(var);
 			}
 
-			println("1. Continuar   ||   0. Voltar");
-			if (lerOpcao() == 1) {
+			print("\nDeseja continua?\n[ 1 ] Sim [ 2 ] Não\n-- ");
+			int opcao = nextInt();
 
-				print("Digite a nova altura: ");
-				double alturaNova = nextDouble();
+			if (opcao == 1) {
+				println("Informe a nova Altura: ");
+				novaAltura = nextDouble();
 
-				{
-					// Verifica se jÃ¡ nÃ£o existe um igual;
-					// Atualiza e mostra;
-				}
-
+				PokemonsDAO.updateAltura(novaAltura, idAtual);
+			} else {
 				voltar();
+			}
+
+			if (PokemonsDAO.updateAltura(novaAltura, idAtual)) {
+				println("Altura alterada com sucesso!\n");
+			} else {
+				println("Ocorreu um erro ao atualizar informações!\n");
 			}
 			home();
 			return;

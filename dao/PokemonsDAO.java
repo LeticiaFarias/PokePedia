@@ -199,4 +199,23 @@ public class PokemonsDAO {
 		}
 		return false;
     }
+    
+    public static boolean updateAltura(double altura, int id) {
+    	PreparedStatement ps = null;
+    	
+    	try {
+			ps = DB.getConnection().prepareStatement("UPDATE pokemons SET altura = ? WHERE id = ?;");
+			ps.setInt(2, id);
+			ps.setDouble(1, altura);
+			
+			int rows = ps.executeUpdate();
+			
+			if(rows == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+    }
 }
