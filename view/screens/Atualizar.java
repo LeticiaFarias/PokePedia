@@ -1,9 +1,13 @@
 package view.screens;
 
+import dao.PokemonsDAO;
+import model.Pokemon;
 import view.Menu;
 
 public class Atualizar extends Menu {
 
+	static String novoNome;
+	
     public static void home() {
         do {
 
@@ -44,6 +48,41 @@ public class Atualizar extends Menu {
         } while (true);
     }
 
+    private static void nome() {
+       do {
+    	   titulo();
+    	   
+    	   println("Atualizar ID");
+    	   print("Digite o ID: ");
+    	   int idAtual = nextInt();
+    	   
+    	   PokemonsDAO.select(idAtual);
+    	   for (Pokemon var : PokemonsDAO.select(idAtual)) {
+               println(var);
+           }
+
+    	   print("\nDeseja continua?\n[ 1 ] Sim [ 2 ] N„o\n-- ");
+    	   int opcao = nextInt();
+    	   
+    	   if(opcao == 1) {
+    		   println("Informe o novo nome: ");
+    		   novoNome = nextLine();
+
+    		   PokemonsDAO.update(novoNome, idAtual);
+    	   }else {
+    		   voltar();
+    	   }
+    	   
+    	   if(PokemonsDAO.update(novoNome, idAtual)) {
+    		   println("Nome alterado com sucesso!\n");
+    	   }else {
+    		   println("Ocorreu um erro ao atualizar informaÁıes!\n");
+    	   }
+    	   home();
+    	   return;
+       }while(true);
+    }
+
     private static void id() {
         do {
             titulo();
@@ -51,45 +90,17 @@ public class Atualizar extends Menu {
             int idAtual = nextInt();
 
             {
-                // Procurar no DB e mostrar;
-            }
-
-            println("1. Continuar   ||   0. Voltar");
-            if (lerOpcao() == 1) {
-
-                print("Digite o novo id: ");
-                int idNovo = nextInt();
-
-                {
-                    // Verifica se j√° n√£o existe um com esse n√∫mero e atualiza;
-                }
-
-                voltar();
-            }
-            home();
-            return;
-        } while (true);
-    }
-
-    private static void nome() {
-        do {
-            titulo();
-            print("Digite o id: ");
-            int idAtual = nextInt();
-
-            {
-                // Procurar no DB e mostrar;
+                PokemonsDAO.select(idAtual);
             }
 
             println("1. Continuar   ||   0. Voltar");
             if (lerOpcao() == 1) {
 
                 print("Digite o novo nome: ");
-                String nomeNovo = nextLine();
+                novoNome = nextLine();
 
                 {
-                    // Verifica se j√° n√£o existe um igual;
-                    // Atualiza e mostra;
+                    PokemonsDAO.update(novoNome, idAtual);
                 }
 
                 voltar();
