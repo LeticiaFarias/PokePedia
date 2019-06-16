@@ -87,8 +87,12 @@ public class Mochila extends Menu {
     private static void listar() {
         titulo();
 
-        for (Pokemon var : MochilasDAO.select(nomeUsuario)) {
-            println(var);
+        try {
+            for (Pokemon var : MochilasDAO.select(nomeUsuario)) {
+                println(var);
+            }
+        } catch (Exception e) {
+           println("Vazio.");
         }
 
         voltar();
