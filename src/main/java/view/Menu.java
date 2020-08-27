@@ -34,7 +34,7 @@ public class Menu extends Helper {
         }
 
         // Apresenta título:
-        println("----- PokePedia -----\n\n");
+        println("\n----- PokePedia -----\n\n");
     }
 
     protected static int lerOpcao() {
